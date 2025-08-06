@@ -2,7 +2,7 @@ name: Deploy Angular App to Server
 
 on:
   workflow_dispatch:
-
+  
   push:
     branches:
       - main  
@@ -25,6 +25,15 @@ jobs:
 
       - name: Build Angular App
         run: npm run build --prod
+
+      - name: Clean old build
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          rm -rf /home/leadstracker/app/frontend/*
 
       - name: Copy Files to Server via SSH
         uses: appleboy/scp-action@v0.1.7
