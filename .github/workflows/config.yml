@@ -1,4 +1,4 @@
-name: Deploy Angular App to Ubuntu Server
+name: Deploy Angular App to Server
 
 on:
   workflow_dispatch:
