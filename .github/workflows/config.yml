@@ -29,11 +29,11 @@ jobs:
       - name: Clean old build
         uses: appleboy/ssh-action@v1.0.3
         with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.SSH_KEY }}
-        script: |
-          rm -rf /home/leadstracker/app/frontend/*
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            rm -rf /home/leadstracker/app/frontend/*
 
       - name: Copy Files to Server via SSH
         uses: appleboy/scp-action@v0.1.7
